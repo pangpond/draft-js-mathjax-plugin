@@ -1,14 +1,20 @@
 {
-  "name": "draft-js-mathjax-plugin",
-  "version": "1.3.4",
+  "name": "@mnp/draft-js-mathjax-plugin",
+  "version": "1.3.5",
   "description": "Math editing support for DraftJS Plugins Editor",
   "author": {
     "name": "Etienne Florent",
     "url": "https://github.com/efloti"
   },
+  "contributors":[
+    {
+      "name": "Andrew Wangsanata",
+      "email": "andrew@mathsnoproblem.co.uk"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/efloti/draft-js-mathjax-plugin.git"
+    "url": "https://github.com/maths-no-problem/draft-js-mathjax-plugin"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -32,9 +38,10 @@
   },
   "scripts": {
     "clean": "rm -rf ./lib",
-    "build": "npm run clean && npm run build:js",
+    "build": "yarn clean && yarn build:js",
     "build:js": "BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production babel --out-dir='lib' --ignore='__test__/*' src",
-    "lint": "eslint 'src/*.js' 'src/**/*.js'; exit 0"
+    "lint": "eslint 'src/*.js' 'src/**/*.js'; exit 0",
+    "prepublishOnly": "yarn build"
   },
   "license": "MIT",
   "dependencies": {},

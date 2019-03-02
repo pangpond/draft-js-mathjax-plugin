@@ -125,7 +125,8 @@ const createMathjaxPlugin = (config = {}) => {
   }
 
   return {
-    initialize: ({ getEditorState, setEditorState, getReadOnly, setReadOnly, getEditorRef }) => {
+    initialize: ({ getEditorState, setEditorState, getReadOnly, setReadOnly, getEditorRef, getProps }) => {
+      store.getProps = getProps
       store.getEditorState = getEditorState
       store.setEditorState = setEditorState
       store.getReadOnly = getReadOnly

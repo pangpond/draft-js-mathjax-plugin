@@ -14,8 +14,13 @@ export default class TeXBlock extends Component {
     this.state = this.getInitialState()
 
     this._update = (key) => {
-      if (this.state.editMode) { return }
       const store = this.props.blockProps.getStore()
+      const editorProps = store.getProps()
+      if (editorProps.readOnly){
+        return
+      }
+
+      if (this.state.editMode) { return }
 
       this.setState({ editMode: true }, () => {
         store.setReadOnly(true)

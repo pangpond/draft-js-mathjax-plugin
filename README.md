@@ -1,5 +1,12 @@
 # DraftJS MathJax Plugin
 
+## Forked from Original
+https://github.com/efloti/draft-js-mathjax-plugin
+
+MNP changes are detailed in CHANGELOG.md
+
+## Introduction
+
 *This is a plugin for the `draft-js-plugins-editor`.*
 
 This plugin allows you to edit math rendered by mathjax. [Give it a try!](https://efloti.github.io/draft-js-mathjax-plugin/)

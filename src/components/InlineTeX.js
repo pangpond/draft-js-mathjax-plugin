@@ -14,8 +14,14 @@ export default class InlineTeX extends Component {
     this.state = this.getInitialState()
 
     this._update = (key) => {
-      if (this.state.editMode) return
       const store = this.props.getStore()
+      const editorProps = store.getProps()
+      if (editorProps.readOnly){
+        return
+      }
+
+      if (this.state.editMode) return
+
       this.setState({ editMode: true }, () => {
         store.setReadOnly(true)
         if (key) { store.teXToUpdate = {} }
@@ -176,4 +182,3 @@ export default class InlineTeX extends Component {
     )
   }
 }
-
