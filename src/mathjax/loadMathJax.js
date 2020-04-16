@@ -27,18 +27,20 @@ const loadMathJax = ({ macros: Macros, script, mathjaxConfig }) => {
   const TeX = Object.assign(config.options.TeX, { Macros })
   config.options = Object.assign(config.options, { TeX })
 
-  if (window.MathJax) {
-    window.MathJax.Hub.Config(config.options)
-    window.MathJax.Hub.processSectionDelay = 0
-    return
-  }
-  load(config.script, (err) => {
-    if (!err) {
+  if (typeof window !== 'undefined') {
+    if (window.MathJax) {
       window.MathJax.Hub.Config(config.options)
-      // avoid flickering of the preview
       window.MathJax.Hub.processSectionDelay = 0
+      return
     }
-  })
+    load(config.script, (err) => {
+      if (!err) {
+        window.MathJax.Hub.Config(config.options)
+        // avoid flickering of the preview
+        window.MathJax.Hub.processSectionDelay = 0
+      }
+    })
+  }
 }
 
 export default loadMathJax
